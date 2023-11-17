@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2023 CATIE
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		bme280 = &bme280_zest_sensor_imu;
+	};
+};
+
+&sixtron_i2c {
+	status = "okay";
+
+	bme280_zest_sensor_imu: bme280@76 {
+		compatible = "bosch,bme280";
+        reg = <0x76>;
+	};
+};

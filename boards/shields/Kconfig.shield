@@ -1,0 +1,5 @@
+# Copyright (c) 2023 CATIE
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_ZEST_SENSOR_IMU
+	def_bool $(shields_list_contains,zest_sensor_imu)
