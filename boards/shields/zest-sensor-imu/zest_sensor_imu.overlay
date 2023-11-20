@@ -15,6 +15,6 @@
 
 	bme280_zest_sensor_imu: bme280@76 {
 		compatible = "bosch,bme280";
-        reg = <0x76>;
+		reg = <0x76>;
 	};
 };
