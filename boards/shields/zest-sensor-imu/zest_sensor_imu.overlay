@@ -9,8 +9,7 @@
 / {
 	aliases {
 		bme280 = &bme280_zest_sensor_imu;
-		bno055 = &bno055_i2c_28;
-		bno055_alt = &bno055_i2c_29;
+		bno055 = &bno0550;
 		iis2dlpc = &iis2dlpc_zest_sensor_imu;
 	};
 };
@@ -23,16 +22,12 @@
 		reg = <0x76>;
 	};
 
-	bno055_i2c_28: bno055@28 {
+	bno0550: bno055@28 {
 		compatible = "bosch,bno055";
-		reg = <0x28>; // R36 (V_1.0.2) | R14 (V_3.1.0)
-		use_xtal = <1>;
-	};
-
-	bno055_i2c_29: bno055@29 {
-		compatible = "bosch,bno055";
-		reg = <0x29>; // R35 (V_1.0.2) | R11 (V_3.1.0)
-		use_xtal = <1>;
+		reg = <0x28>;
+		irq-gpios = <&sixtron_connector WKUP (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+		use_xtal;
+		zephyr,deferred-init;
 	};
 	
 	iis2dlpc_zest_sensor_imu : iis2dlpc@33 {
