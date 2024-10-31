@@ -7,6 +7,8 @@
 / {
 	aliases {
 		bme280 = &bme280_zest_sensor_imu;
+		iis2dlpc = &iis2dlpc_i2c_33;
+		is2dlpc_alt = &iis2dlpc_i2c_31;
 	};
 };
 
