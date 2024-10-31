@@ -9,7 +9,7 @@
 / {
 	aliases {
 		bme280 = &bme280_zest_sensor_imu;
-		bno055 = &bno0550;
+		bno055 = &bno055_zest_sensor_imu;
 		iis2dlpc = &iis2dlpc_zest_sensor_imu;
 	};
 };
@@ -22,7 +22,7 @@
 		reg = <0x76>;
 	};
 
-	bno0550: bno055@28 {
+	bno055_zest_sensor_imu: bno055@28 {
 		compatible = "bosch,bno055";
 		reg = <0x28>;
 		irq-gpios = <&sixtron_connector WKUP (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
