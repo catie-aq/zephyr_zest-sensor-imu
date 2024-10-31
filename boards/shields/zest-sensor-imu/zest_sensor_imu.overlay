@@ -17,4 +17,14 @@
 		compatible = "bosch,bme280";
 		reg = <0x76>;
 	};
+	
+	iis2dlpc_i2c_31: iis2dlpc@31 {
+		compatible = "st,iis2dlpc";
+		reg = <0x31>; /* R20 */
+	};
+
+	iis2dlpc_i2c_33: iis2dlpc@33 {
+		compatible = "st,iis2dlpc";
+		reg = <0x33>; /* R19 */
+	};
 };
