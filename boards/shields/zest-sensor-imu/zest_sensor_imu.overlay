@@ -23,8 +23,6 @@
 	
 	iis2dlpc_zest_sensor_imu : iis2dlpc@33 {
 		compatible = "st,iis2dlpc";
-		reg = <0x33>; /* R19 */
-		drdy_gpios = <&sixtron_connector WKUP GPIO_ACTIVE_HIGH>; /* R18 and Rint2 */
-		drdy-int =  <1>; /* INT1*/
+		reg = <0x33>; 
 	};
 };
