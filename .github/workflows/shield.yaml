@@ -1,0 +1,17 @@
+name: "Test shield"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  board:
+    uses: catie-aq/zephyr_workflows/.github/workflows/shield.yml@main
+    with:
+      shield: "zest_sensor_imu"
+
+    secrets:
+      personal_access_token: ${{ secrets.CI_6TRON_ZEPHYR_RO }}
