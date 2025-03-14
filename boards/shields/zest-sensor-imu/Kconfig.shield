@@ -3,3 +3,8 @@
 
 config SHIELD_ZEST_SENSOR_IMU
 	def_bool $(shields_list_contains,zest_sensor_imu)
+	select I2C
+
+config SHIELD_ZEST_SENSOR_IMU_ALT
+	def_bool $(shields_list_contains,zest_sensor_imu_alt)
+	select I2C
