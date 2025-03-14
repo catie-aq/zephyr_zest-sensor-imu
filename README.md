@@ -12,10 +12,32 @@ This board enables the following components:
 
 :bulb: This driver should also be added to your workspace:
 
-- [Bosch BNO055 driver](https://github.com/catie-aq/zephyr_bosch-bno055) for Zephyr-OS
+- [Bosch BNO055 driver](https://github.com/catie-aq/zephyr_bosch-bno055) for Zephyr OS
 
-> [!NOTE]
-> The node label for the BME280 component is `bme280_zest_sensor_imu`. \
-> The node label for the BNO055 component is `bno055_zest_sensor_imu`. \
-> The node label for the IIS2DLPC component is `iis2dlpc_zest_sensor_imu`. \
-> Shield name: `zest_sensor_imu`.
+:pushpin: This shield defines:
+
+- the humidity sensor alias: `bme280` to `bme280_zest_sensor_imu_X`
+- the smart imu alias: `bno055` to `bno055_zest_sensor_imu_X`
+- the motion sensor alias: `iis2dlpc` to `iis2dlpc_zest_sensor_imu_X`
+
+:triangular_ruler: To use this shield:
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU(port)` macro to the `app.overlay` file.\
+  Replace `port` with the number of the Zest_Core port to which the shield is connected, e.g.:
+
+  ```c
+  ZEST_SENSOR_IMU(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ```
+
+- Activate support for the shield by adding `--shield zest_sensor_imu` to the west command.
+
+## Advanced Usage
+
+This shield can be hardware-modified to suit your application.
+
+In that case, use instead the alternate variant of the shield:
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU_ALT(port, irq)` macro to the `app.overlay` file, with:
+  - `port`: number of the Zest_Core port to which the shield is connected,
+  - `irq`: smart imu IRQ pin
+- Activate support for the shield by adding `--shield zest_sensor_imu_alt` to the west command.
