@@ -29,16 +29,7 @@
 		}; \
 	};
 
-#define ALIASES_ZEST_SENSOR_IMU(port) \
-	/ { \
-		aliases { \
-			bme280 = &bme280_zest_sensor_imu_##port; \
-			bno055 = &bno055_zest_sensor_imu_##port; \
-			iis2dlpc = &iis2dlpc_zest_sensor_imu_##port; \
-		}; \
-	};
 
 #define ZEST_SENSOR_IMU(port) \
 	PERIPHERAL_ZEST_SENSOR_IMU(port) \
-	DRIVERS_ZEST_SENSOR_IMU(port) \
-	ALIASES_ZEST_SENSOR_IMU(port)
+	DRIVERS_ZEST_SENSOR_IMU(port)
