@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2023 CATIE
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/sixtron-header.h>
+
+#define PERIPHERAL_ZEST_SENSOR_IMU_ALT(port) \
+	i2c_zest_sensor_imu_##port: &sixtron_connector_##port##_i2c {};
+
+#define DRIVERS_ZEST_SENSOR_IMU_ALT(port, irq_pin) \
+	&i2c_zest_sensor_imu_##port {
+		status = "okay";
+		bme280_zest_sensor_imu_##port: bme280##port@76 {
+			compatible = "bosch,bme280";
+			reg = <0x76>;
+		};
+		bno055_zest_sensor_imu_##port: bno055##port@28 {
+			compatible = "bosch,bno055";
+			reg = <0x28>;
+			irq-gpios = <&sixtron_connector_##port irq_pin (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+			use_xtal;
+			zephyr,deferred-init;
+		};
+		iis2dlpc_zest_sensor_imu_##port: iis2dlpc##port@33 {
+			compatible = "st,iis2dlpc";
+			reg = <0x33>;
+		};
+	};
+
+#define ALIASES_ZEST_SENSOR_IMU_ALT(port) \
+	/ {
+		aliases {
+			bme280 = &bme280_zest_sensor_imu_##port;
+			bno055 = &bno055_zest_sensor_imu_##port;
+			iis2dlpc = &iis2dlpc_zest_sensor_imu_##port;
+		};
+	};
+
+#define ZEST_SENSOR_IMU_ALT(port, irq) \
+	PERIPHERAL_ZEST_SENSOR_IMU_ALT(port) \
+	DRIVERS_ZEST_SENSOR_IMU_ALT(port, irq) \
+	ALIASES_ZEST_SENSOR_IMU_ALT(port)
