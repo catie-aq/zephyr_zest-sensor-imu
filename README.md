@@ -25,7 +25,7 @@ This board enables the following components:
 - Update your device tree by adding the `ZEST_SENSOR_IMU(port)` macro to the `app.overlay` file.\
   Replace `port` with the number of the Zest_Core port to which the shield is connected, e.g.:
 
-  ```c
+  ```dts
   ZEST_SENSOR_IMU(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
   ```
 
@@ -39,5 +39,10 @@ In that case, use instead the alternate variant of the shield:
 
 - Update your device tree by adding the `ZEST_SENSOR_IMU_ALT(port, irq)` macro to the `app.overlay` file, with:
   - `port`: number of the Zest_Core port to which the shield is connected,
-  - `irq`: smart imu IRQ pin
+  - `irq`: smart imu IRQ pin (cf. [6tron connector](https://github.com/catie-aq/zephyr_6tron-connector/blob/main/dts/bindings/sixtron-bus.yaml)).
+
+  ```dts
+  ZEST_SENSOR_IMU_ALT(1, WKUP) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ```
+
 - Activate support for the shield by adding `--shield zest_sensor_imu_alt` to the west command.
