@@ -2,9 +2,9 @@
 
 Zest_Sensor_IMU board support for Zephyr OS.
 
-## Usage
+## Version 3.1.0
 
-This board enables the following components:
+### Components
 
 - [Bosch BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) humidity sensor,
 - [Bosch BNO055](https://www.bosch-sensortec.com/products/smart-sensor-systems/bno055/) smart IMU,
@@ -12,18 +12,18 @@ This board enables the following components:
 
 :bulb: This driver should also be added to your workspace:
 
-- [Bosch BNO055 driver](https://github.com/catie-aq/zephyr_bosch-bno055) for Zephyr OS
+- [Bosch BNO055 driver](https://github.com/catie-aq/zephyr_bosch-bno055) for Zephyr OS.
 
-:pushpin: This shield defines:
+### Devices
 
-- a humidity sensor device: `bme280_zest_sensor_imu_<port>`,
-- a smart imu device: `bno055_zest_sensor_imu_<port>`,
-- a motion sensor device: `iis2dlpc_zest_sensor_imu_<port>`.
+- `bme280_zest_sensor_imu_<port>` humidity sensor,
+- `bno055_zest_sensor_imu_<port>` smart IMU,
+- `iis2dlpc_zest_sensor_imu_<port>` motion sensor.
 
-:triangular_ruler: To use this shield:
+### Standard Variant
 
 - Update your device tree by adding the `ZEST_SENSOR_IMU(port)` macro to the `app.overlay` file.\
-  Replace `port` with the number of the Zest_Core port to which the shield is connected, e.g.:
+  Replace `port` with the number of the Zest_Core port to which the shield is connected, for example:
 
   ```dts
   ZEST_SENSOR_IMU(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
@@ -31,18 +31,51 @@ This board enables the following components:
 
 - Activate support for the shield by adding `--shield zest_sensor_imu` to the west command.
 
-## Advanced Usage
-
-This shield can be hardware-modified to suit your application.
-
-In that case, use instead the alternate variant of the shield:
+### Alternate Variant
 
 - Update your device tree by adding the `ZEST_SENSOR_IMU_ALT(port, irq)` macro to the `app.overlay` file, with:
   - `port`: number of the Zest_Core port to which the shield is connected,
-  - `irq`: smart imu IRQ pin (cf. [6tron connector](https://github.com/catie-aq/zephyr_6tron-connector/blob/main/dts/bindings/sixtron-bus.yaml)).
+  - `irq`: smart IMU IRQ pin (cf. [6tron connector](https://github.com/catie-aq/zephyr_6tron-connector/blob/main/dts/bindings/sixtron-bus.yaml)).
 
   ```dts
-  ZEST_SENSOR_IMU_ALT(1, WKUP) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ZEST_SENSOR_IMU_ALT(1, WKUP) /* Configured with IRQ pin WKUP for IMU */
   ```
 
 - Activate support for the shield by adding `--shield zest_sensor_imu_alt` to the west command.
+
+## Version 4.0.0
+
+### Components
+
+- [ST ISM330DHCX](https://www.st.com/en/mems-and-sensors/ism330dhcx.html) 6-axis IMU,
+- [ST IIS2MDC](https://www.st.com/en/mems-and-sensors/iis2mdc.html) magnetometer (disabled by default in the DTS overlay).
+
+### Devices
+
+- `ism330dhcx_zest_sensor_imu_<port>` IMU,
+- `iis2mdc_zest_sensor_imu_<port>` magnetometer.
+
+### Standard Variant
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU(port)` macro to the `app.overlay` file.\
+  Replace `port` with the number of the Zest_Core port to which the shield is connected, for example:
+
+  ```dts
+  ZEST_SENSOR_IMU(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ```
+
+- Activate support for the shield by adding `--shield zest_sensor_imu_4.0.0` to the west command.
+
+### Alternate Variant
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU_ALT(port, ism330dhcx_irq, iis2mdc_irq)` macro to the `app.overlay` file, with:
+  - `port`: number of the Zest_Core port to which the shield is connected,
+  - `ism330dhcx_irq`: IMU IRQ pin,
+  - `iis2mdc_irq`: magnetometer IRQ pin
+    (cf. [6tron connector](https://github.com/catie-aq/zephyr_6tron-connector/blob/main/dts/bindings/sixtron-bus.yaml)).
+
+  ```dts
+  ZEST_SENSOR_IMU_ALT(1, DIO1, DIO3) /* Configured with IRQ pins DIO1 for IMU and DIO3 for magnetometer */
+  ```
+
+- Activate support for the shield by adding `--shield zest_sensor_imu_4_0_0_alt` to the west command.
