@@ -11,7 +11,15 @@ jobs:
   board:
     uses: catie-aq/zephyr_workflows/.github/workflows/shield.yml@main
     with:
-      shield: "zest_sensor_imu"
+      shield: "zest_sensor_imu_3.1.0"
+
+    secrets:
+      personal_access_token: ${{ secrets.CI_6TRON_ZEPHYR_RO }}
+
+  board_4_0_0:
+    uses: catie-aq/zephyr_workflows/.github/workflows/shield.yml@main
+    with:
+      shield: "zest_sensor_imu_4.0.0"
 
     secrets:
       personal_access_token: ${{ secrets.CI_6TRON_ZEPHYR_RO }}
