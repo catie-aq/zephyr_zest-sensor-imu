@@ -6,3 +6,15 @@ config SHIELD_ZEST_SENSOR_IMU
 
 config SHIELD_ZEST_SENSOR_IMU_ALT
 	def_bool $(shields_list_contains,zest_sensor_imu_alt)
+
+config SHIELD_ZEST_SENSOR_IMU_3_1_0
+	def_bool $(shields_list_contains,zest_sensor_imu_3_1_0)
+
+config SHIELD_ZEST_SENSOR_IMU_3_1_0_ALT
+	def_bool $(shields_list_contains,zest_sensor_imu_3_1_0_alt)
+
+config SHIELD_ZEST_SENSOR_IMU_4_0_0
+	def_bool $(shields_list_contains,zest_sensor_imu_4_0_0)
+
+config SHIELD_ZEST_SENSOR_IMU_4_0_0_ALT
+	def_bool $(shields_list_contains,zest_sensor_imu_4_0_0_alt)
