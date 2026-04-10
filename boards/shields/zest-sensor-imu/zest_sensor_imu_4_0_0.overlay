@@ -14,13 +14,13 @@
 		status = "okay"; \
 		ism330dhcx_zest_sensor_imu_##port: ism330dhcx##port@6a { \
 			compatible = "st,ism330dhcx"; \
-			drdy-gpios = <&sixtron_connector_##port DIO5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; \
+			drdy-gpios = <&sixtron_connector_##port DIO5 GPIO_ACTIVE_HIGH>; \
 			reg = <0x6a>; \
 		}; \
 		iis2mdc_zest_sensor_imu_##port: iis2mdc##port@1e { \
 			compatible = "st,iis2mdc"; \
 			status = "disabled"; \
-			drdy-gpios = <&sixtron_connector_##port DIO7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; \
+			drdy-gpios = <&sixtron_connector_##port DIO7 GPIO_ACTIVE_HIGH>; \
 			reg = <0x1e>; \
 		}; \
 	};
