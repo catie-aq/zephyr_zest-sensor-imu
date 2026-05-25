@@ -30,6 +30,6 @@
 	};
 
 
-#define ZEST_SENSOR_IMU_3_1_0(port) \
+#define ZEST_SENSOR_IMU_1_0_2(port) \
 	PERIPHERAL_ZEST_SENSOR_IMU(port) \
 	DRIVERS_ZEST_SENSOR_IMU(port)
