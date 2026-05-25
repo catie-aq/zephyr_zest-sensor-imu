@@ -2,7 +2,7 @@
 
 Zest_Sensor_IMU board support for Zephyr OS.
 
-## Version 3.1.0
+## Version 1.0.2
 
 ### Components
 

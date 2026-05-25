@@ -29,6 +29,6 @@
 		}; \
 	};
 
-#define ZEST_SENSOR_IMU_3_1_0_ALT(port, irq) \
+#define ZEST_SENSOR_IMU_1_0_2_ALT(port, irq) \
 	PERIPHERAL_ZEST_SENSOR_IMU_ALT(port) \
 	DRIVERS_ZEST_SENSOR_IMU_ALT(port, irq)

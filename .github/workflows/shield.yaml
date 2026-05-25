@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  board_3_1_0:
+  board_1_0_2:
     uses: catie-aq/zephyr_workflows/.github/workflows/shield.yml@main
     with:
-      shield: "zest_sensor_imu_3_1_0"
+      shield: "zest_sensor_imu_1_0_2"
 
     secrets:
       personal_access_token: ${{ secrets.CI_6TRON_ZEPHYR_RO }}
