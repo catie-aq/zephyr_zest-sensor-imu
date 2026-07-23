@@ -7,8 +7,10 @@ Zest_Sensor_IMU board support for Zephyr OS.
 ### Components
 
 - [Bosch BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) humidity sensor,
-- [Bosch BNO055](https://www.bosch-sensortec.com/products/smart-sensor-systems/bno055/) smart IMU,
-- [ST IIS2DLPC](https://www.st.com/en/mems-and-sensors/iis2dlpc.html) motion sensor.
+- [Bosch BMA280](https://www.bosch-sensortec.com/products/motion-sensors/accelerometers/bma280.html) triaxial acceleration sensor,
+- [Bosch BMG160](https://www.bosch-sensortec.com/bst/products/all_products/bmg160) gyroscope,
+- [NXP FXAS21002](https://www.nxp.com/products/sensors/motion-sensors/3-axis-digital-angular-rate-gyroscope:FXAS21002C) gyroscope,
+- [Bosch BNO055](https://www.bosch-sensortec.com/products/smart-sensor-systems/bno055/) smart IMU.
 
 :bulb: This driver should also be added to your workspace:
 
@@ -17,8 +19,10 @@ Zest_Sensor_IMU board support for Zephyr OS.
 ### Devices
 
 - `bme280_zest_sensor_imu_<port>` humidity sensor,
-- `bno055_zest_sensor_imu_<port>` smart IMU,
-- `iis2dlpc_zest_sensor_imu_<port>` motion sensor.
+- `bma280_zest_sensor_imu_<port>` triaxial acceleration sensor,
+- `bmg160_zest_sensor_imu_<port>` gyroscope,
+- `fxas21002_zest_sensor_imu_<port>` gyroscope,
+- `bno055_zest_sensor_imu_<port>` smart IMU.
 
 ### Standard Variant
 
