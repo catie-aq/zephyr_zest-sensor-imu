@@ -12,9 +12,17 @@
 #define DRIVERS_ZEST_SENSOR_IMU_ALT(port, irq_pin) \
 	&i2c_zest_sensor_imu_##port { \
 		status = "okay"; \
+		bma280_zest_sensor_imu_##port: bma280##port@18 { \
+			compatible = "bosch,bma280"; \
+			reg = <0x18>; \
+		}; \
 		bme280_zest_sensor_imu_##port: bme280##port@76 { \
 			compatible = "bosch,bme280"; \
 			reg = <0x76>; \
+		}; \
+		bmg160_zest_sensor_imu_##port: bmg160##port@68 { \
+			compatible = "bosch,bmg160"; \
+			reg = <0x68>; \
 		}; \
 		bno055_zest_sensor_imu_##port: bno055##port@28 { \
 			compatible = "bosch,bno055"; \
@@ -23,9 +31,9 @@
 			use_xtal; \
 			zephyr,deferred-init; \
 		}; \
-		iis2dlpc_zest_sensor_imu_##port: iis2dlpc##port@33 { \
-			compatible = "st,iis2dlpc"; \
-			reg = <0x33>; \
+		fxas21002_zest_sensor_imu_##port: fxas21002##port@20 { \
+			compatible = "nxp,fxas21002"; \
+			reg = <0x20>; \
 		}; \
 	};
 
