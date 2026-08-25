@@ -47,6 +47,35 @@ Zest_Sensor_IMU board support for Zephyr OS.
 
 - Activate support for the shield by adding `--shield zest_sensor_imu_alt` to the west command.
 
+## Version 3.0.0
+
+### Components
+
+- [CEVA BNO085](https://www.ceva-ip.com/product/bno-9-axis-imu/) 9-axis IMU (not supported),
+- [Bosch BNO055](https://www.bosch-sensortec.com/products/smart-sensor-systems/bno055/) 9-axis IMU, fitted in place of the BNO085 on some boards (disabled by default in the DTS overlay),
+- [ST IIS2DLPC](https://www.st.com/en/mems-and-sensors/iis2dlpc.html) 3-axis accelerometer,
+- [ST M24C02-WMN6TP](https://www.st.com/en/memories/m24c02-w.html) 2 Kbit I2C EEPROM.
+
+:bulb: To enable the BNO055, the [Bosch BNO055 driver](https://github.com/catie-aq/zephyr_bosch-bno055)
+should also be added to your workspace.
+
+### Devices
+
+- `bno055_zest_sensor_imu_<port>` smart IMU,
+- `iis2dlpc_zest_sensor_imu_<port>` accelerometer,
+- `eeprom_zest_sensor_imu_<port>` EEPROM.
+
+### Standard Variant
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU_3_0_0(port)` macro to the `app.overlay` file.\
+  Replace `port` with the number of the Zest_Core port to which the shield is connected, for example:
+
+  ```dts
+  ZEST_SENSOR_IMU_3_0_0(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ```
+
+- Activate support for the shield by adding `--shield zest_sensor_imu_3_0_0` to the west command.
+
 ## Version 4.0.0
 
 ### Components
