@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2026 CATIE
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/sixtron-header.h>
+
+#define PERIPHERAL_ZEST_SENSOR_IMU(port) \
+	i2c_zest_sensor_imu_##port: &sixtron_connector_##port##_i2c {};
+
+#define DRIVERS_ZEST_SENSOR_IMU(port) \
+	&i2c_zest_sensor_imu_##port { \
+		status = "okay"; \
+		bno055_zest_sensor_imu_##port: bno055##port@28 { \
+			compatible = "bosch,bno055"; \
+			status = "disabled"; \
+			reg = <0x28>; \
+			irq-gpios = <&sixtron_connector_##port WKUP (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; \
+			use_xtal; \
+			zephyr,deferred-init; \
+		}; \
+		iis2dlpc_zest_sensor_imu_##port: iis2dlpc##port@19 { \
+			compatible = "st,iis2dlpc"; \
+			reg = <0x19>; \
+		}; \
+		eeprom_zest_sensor_imu_##port: eeprom##port@50 { \
+			compatible = "st,m24c02", "st,m24xxx", "atmel,at24"; \
+			reg = <0x50>; \
+			size = <256>; /* 2 Kbit */ \
+			pagesize = <16>; \
+			address-width = <8>; \
+			timeout = <5>; \
+		}; \
+	};
+
+
+#define ZEST_SENSOR_IMU_3_0_0(port) \
+	PERIPHERAL_ZEST_SENSOR_IMU(port) \
+	DRIVERS_ZEST_SENSOR_IMU(port)
