@@ -76,6 +76,21 @@ should also be added to your workspace.
 
 - Activate support for the shield by adding `--shield zest_sensor_imu_3_0_0` to the west command.
 
+## Version 3.1.0
+
+Same components and devices as [version 3.0.0](#version-300).
+
+### Standard Variant
+
+- Update your device tree by adding the `ZEST_SENSOR_IMU_3_1_0(port)` macro to the `app.overlay` file.\
+  Replace `port` with the number of the Zest_Core port to which the shield is connected, for example:
+
+  ```dts
+  ZEST_SENSOR_IMU_3_1_0(1) /* Zest_Sensor_IMU connected to Zest_Core first port */
+  ```
+
+- Activate support for the shield by adding `--shield zest_sensor_imu_3_1_0` to the west command.
+
 ## Version 4.0.0
 
 ### Components
