@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2023 CATIE
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "zest_sensor_imu_3_0_0.overlay"
+
+#define ZEST_SENSOR_IMU_3_1_0(port) \
+	PERIPHERAL_ZEST_SENSOR_IMU(port) \
+	DRIVERS_ZEST_SENSOR_IMU(port)
