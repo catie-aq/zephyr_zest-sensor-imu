@@ -35,18 +35,6 @@ Zest_Sensor_IMU board support for Zephyr OS.
 
 - Activate support for the shield by adding `--shield zest_sensor_imu_1_0_2` to the west command.
 
-### Alternate Variant
-
-- Update your device tree by adding the `ZEST_SENSOR_IMU_1_0_2_ALT(port, irq)` macro to the `app.overlay` file, with:
-  - `port`: number of the Zest_Core port to which the shield is connected,
-  - `irq`: smart IMU IRQ pin (cf. [6tron connector](https://github.com/catie-aq/zephyr_6tron-connector/blob/main/dts/bindings/sixtron-bus.yaml)).
-
-  ```dts
-  ZEST_SENSOR_IMU_1_0_2_ALT(1, WKUP) /* Configured with IRQ pin WKUP for IMU */
-  ```
-
-- Activate support for the shield by adding `--shield zest_sensor_imu_1_0_2_alt` to the west command.
-
 ## Version 3.0.0
 
 ### Components
